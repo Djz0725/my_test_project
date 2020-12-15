@@ -5,8 +5,4 @@
 @desc
 """
 
-print("hello world")
-<<<<<<< HEAD
-print(2222)
-=======
->>>>>>> test1
+
