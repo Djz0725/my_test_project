@@ -7,13 +7,10 @@
 
 import tornado.web
 import platform
-import json
+import asyncio
 
 if platform.system() == "Windows":
-    import asyncio
-
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-
 
 class MainHander(tornado.web.RequestHandler):
     def get(self):
@@ -25,15 +22,9 @@ class MainHander(tornado.web.RequestHandler):
         self.write("success!")
         self.finish()
 
-class JSONObject:
-  def __init__( self, dict ):
-      vars(self).update( dict )
-
 app = tornado.web.Application([
     ('/index',MainHander)
 ])
-
-
 
 if __name__ == "__main__":
     app.listen(80)
