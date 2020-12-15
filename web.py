@@ -6,8 +6,8 @@
 """
 
 import tornado.web
-
 import platform
+import json
 
 if platform.system() == "Windows":
     import asyncio
@@ -20,11 +20,20 @@ class MainHander(tornado.web.RequestHandler):
         self.write("hello world!")
 
     def post(self):
-        self.write("hello world! post!")
+        data = self.request.body
+        print(data)
+        self.write("success!")
+        self.finish()
+
+class JSONObject:
+  def __init__( self, dict ):
+      vars(self).update( dict )
 
 app = tornado.web.Application([
     ('/index',MainHander)
 ])
+
+
 
 if __name__ == "__main__":
     app.listen(80)
