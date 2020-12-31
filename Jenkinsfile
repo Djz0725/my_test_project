@@ -7,7 +7,7 @@ pipeline {
                 sh '''
                     cd /
                     mkdir jenkins_test1
-                    cd jenkins_test
+                    cd jenkins_test1
                     echo "this is my first test" >> test1.txt
                 '''
             }
